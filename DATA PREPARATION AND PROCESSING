@@ -43,7 +43,7 @@ print(df)
 #exporting the cleaned dataframe to csv
 df.to_csv("C:/Users/Me/Desktop/CaseStudy1/trips_2013_cleaned.csv", index=True, header=True)
 
-#Plotiing a scatterplot to view and locate outliers (tripduration)
+#Plotting a scatterplot to view and locate outliers (tripduration)
 import pandas as pd
 import matplotlib.pyplot as plt
 df = pd.read_csv("C:/Users/Me/Desktop/CaseStudy1/trips_2013_cleaned.csv")
@@ -52,9 +52,9 @@ plt.show()
 
 (3) EXCEL
 *********
-1. Converting tripduration to minutes by diving the by 60 in order to work with smaller numbers
+1. Converting tripduration from seconds to minutes by diving by 60 to work with smaller numbers
 
-2. Calculate MIN, MAX and AVERAGE of tripduration to assess outliers by insert a pivot table.
+2. Calculate MIN, MAX and AVERAGE of tripduration using a pivot table to assess outliers 
    Initially: Overall - (MIN = 1 sec, MAX = 1440 min and MEAN = 21 min)
 	      Subscribers- (MIN = 1 sec, MAX = 1431 min and MEAN = 12 min)
               Customers  - (MIN = 1 sec, MAX = 1440 min and MEAN = 30 min)

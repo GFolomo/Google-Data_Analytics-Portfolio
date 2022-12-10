@@ -1,0 +1,78 @@
+*******************************
+DATA PREPARATION AND PROCESSING
+*******************************
+NB:
+- The data used was from the year 2013, recorded from June to Deccember (downloaded from https://divvy-tripdata.s3.amazonaws.com/index.html).
+- License: https://www.divvybikes.com/data-license-agreement
+- Bigdata: 759789 records and 12 columns (trip_id, starttime, stoptime, bikeid, tripduration, from_station_id, from_station_name, to_station_id, to_station_name, usertype, gender, birthyear)
+- Terminology: 
+             *CUSTOMERS: are riders that purchase single-ride or full-day passes. *SUBSCRIBERS: are riders that purchase annual memberships 
+- Used tools: SQL (BigQuery), Python and Excel
+
+
+
+(1) SQL (BigQuery)
+******************
+--Deleting irrelevant columns: gender, birthyear, bikeid, from_station_id and to_station_id
+--Save the cleaned table as backup in the dataset and export it as csv  
+ALTER TABLE  `astute-nuance-370613.divvy_raw_data.trips_2013` 
+DROP COLUMN bikeid
+DROP COLUMN from_station_id
+DROP COLUMN to_station_id
+DROP COLUMN gender
+DROP COLUMN birthyear
+
+--Verifying that the type of rider is either Subscriber or Customer in the column usertype
+SELECT usertype 
+FROM `astute-nuance-370613.divvy_raw_data.trips_2013` 
+GROUP BY usertype
+
+(2) PYTHON
+**********
+#importing the csv file (saved from BigQuery) 
+#printing information about information about data and conducting descriptive statistical analysis
+import pandas as pd
+df = pd.read_csv("C:/Users/Me/Desktop/CaseStudy1/divvy_Trips_2013.csv")
+print(df)
+print(df.info())
+
+#deleting rows containing "Dependent" in the usertype column and printingg the dataframe to verify
+df = df[df["usertype"].str.contains("Dependent")==False]
+print(df)
+
+#exporting the cleaned dataframe to csv
+df.to_csv("C:/Users/Me/Desktop/CaseStudy1/trips_2013_cleaned.csv", index=True, header=True)
+
+#Plotiing a scatterplot to view and locate outliers (tripduration)
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv("C:/Users/Me/Desktop/CaseStudy1/trips_2013_cleaned.csv")
+df.plot(kind = 'scatter', x = 'trip_id', y = 'tripduration')
+plt.show()
+
+(3) EXCEL
+*********
+1. Converting tripduration to minutes by diving the by 60 in order to work with smaller numbers
+
+2. Calculate MIN, MAX and AVERAGE of tripduration to assess outliers by insert a pivot table.
+   Initially: Overall - (MIN = 1 sec, MAX = 1440 min and MEAN = 21 min)
+	      Subscribers- (MIN = 1 sec, MAX = 1431 min and MEAN = 12 min)
+              Customers  - (MIN = 1 sec, MAX = 1440 min and MEAN = 30 min)
+>> ASSUMPTION - no rider can ride a bike too long or non-stop (e.g. 24 hours). Therefore, 
+               the acceptable maximum tripduration was set to 90 minutes or 1 hour and 30 minutes
+>> It turned out that only about 1.8% (13902) of trips (from 759789) accounted for trips longer than 90 minutes. 
+   By deleting these outliers, the result wouldn't be affected. This would then means that the business is focussed
+   on clients riding for at most 90 minutes from one station to another.
+
+3. Filtering out and Deleting all rows with a tripduration greater than 90 minutes 
+  NB: No blanks and duplicate trip_id records were found (verified with filtering and pivot table)
+  - After removing outliers, (the overall mean tripduration was 17 minutes, min. and max. were 1 and 9 respectively)
+  - customers 23 and subscribers 11
+4. Extracting the hour, day and month from starttime; each in its respective column using the "TEXT" function
+
+5. Formatting all columns
+
+6. Verify and inspect the consistency of data in each column using the filter, sort and pivot table tools
+
+7. Inspect again using filter and pivot table that Customer and Subscriber are the only 2 types of rider 
+

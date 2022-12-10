@@ -1,0 +1,57 @@
+*************
+DATA ANALYSIS
+*************
+NB
+- Aim: Design marketing strategies aimed at converting casual riders (customers) into annual members (subescribers) which translates into maximizing the business profit.
+- Objective: to understand the difference between customers and subscribers in their ways of using bikes.
+
+- Used tool: Excel
+
+(1) DATA ORGANIZATION
+    *****************
+Pivot tables were created to easily organize data, have a quick visualization and conduct descriptive analysis.
+Considering the relevant columns and aim of the project, the following pivot tables were created and converted 
+into graphs to visualize and uncover trends, patterns, relationships and surprises:
+- Count of Customer and Subscriber riders, showing the total and percentage distribution 
+- Overall average trip duration by rider type
+- Hourly count of rides by usertype
+- Daily count of rides by usertype
+- Montly count of rides by usertype
+- Count of rides by usertype per month aggregated into seasons (summer, autumn and winter)
+- Average daily trip duration
+
+(2) DISCUSSION
+    **********
+1. Total rides count by usertype:
+In 2013, customers accounted for 46% of the total recorded rides (745886) and subscribers 54%.
+>> This revealed that there are opprtunities to convert a substantial number of customers into subscribers as customers make up almost half of the total.
+
+2. Overall average trip duration by rider type:
+>>On average, Customers have been observed to ride longer than subscribers hourly, daily, wekely, monthly and annually.
+
+3. Hourly count of rides by usertype:
+- Customers outnumbered subscribers from mid-night untill about 4:30 am, then from 10 am to 4pm, and again from 9pm to mid-night.
+These time slopts have been termed off-peak hours
+- Subscribers on the other hand, outnumbered customers during the remaning time slots, termed peak hours
+- The hourly count of rides graph has shown a negative correlation between the two rider types. When customers are more active, subscribers are not
+as many and vica versa
+
+4. Daily rides count by usertype:
+- Customers have been found to outnumber subscribers on weekends (Staturday and Sunday) only.
+- Subscribers are a lot more during week days (Monday to Friday)
+
+5. Monthly count of rides by usertype
+- Customers have been found to outnumber subscribers from June to September
+- Subscribers then take over from October to December
+
+6. Seasonal count
+- Summer has been observed to be the only season when customers ride more often
+- Subscribers on the other hand, outnumbered customers in Autumn and Winter
+7. Average daily trip duration
+- On average, customers ride daily for about 21 to 25 minutes whereas subcribers ride for about 11 to 13 minutes
+- This implies that customers travel slightly longer distances than subscribers on average.
+
+ 
+
+
+

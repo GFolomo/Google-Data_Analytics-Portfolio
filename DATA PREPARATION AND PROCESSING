@@ -66,13 +66,13 @@ plt.show()
 
 3. Filtering out and Deleting all rows with a tripduration greater than 90 minutes 
   NB: No blanks and duplicate trip_id records were found (verified with filtering and pivot table)
-  - After removing outliers, (the overall mean tripduration was 17 minutes, min. and max. were 1 and 9 respectively)
+  - After removing outliers, the overall mean tripduration was 17 minutes, min. and max. were 1 and 9 respectively
   - customers 23 and subscribers 11
 4. Extracting the hour, day and month from starttime; each in its respective column using the "TEXT" function
 
 5. Formatting all columns
 
-6. Verify and inspect the consistency of data in each column using the filter, sort and pivot table tools
+6. Verifying and inspecting the consistency of data in each column using the filter, sort and pivot table tools
 
 7. Inspect again using filter and pivot table that Customer and Subscriber are the only 2 types of rider 
 

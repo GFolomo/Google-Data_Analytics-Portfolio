@@ -61,7 +61,7 @@ plt.show()
 >> ASSUMPTION - no rider can ride a bike too long or non-stop (e.g. 24 hours). Therefore, 
                the acceptable maximum tripduration was set to 90 minutes or 1 hour and 30 minutes
 >> It turned out that only about 1.8% (13902) of trips (from 759789) accounted for trips longer than 90 minutes. 
-   By deleting these outliers, the result wouldn't be affected. This would then means that the business is focussed
+   By deleting these outliers, the result wouldn't be affected. This would then mean that the business is focussed
    on clients riding for at most 90 minutes from one station to another.
 
 3. Filtering out and Deleting all rows with a tripduration greater than 90 minutes 
